@@ -95,14 +95,50 @@ As we could see during the training, the algorithm was not capable of learning t
 ### Data agumentation
 Data augmentation was performed for the three 2D slices, leading to 10 augmented images per original image. As we can see in the next figure, the learning capability of the algorithm improved because of the data augmentation. We changed to a kernel-size of 3 due to odd sizes being preferred due to symmetrically dividing the previous layer pixels around the output layer. However, the obtained prediction accuracy was low, a 53.84%; whereas the loss was 72.44%.
 
+<br>
+
+<img src="https://github.com/romaniegaa/Portfolio/blob/main/images/graph5.png" width="75%" height="75%">
+
+<br>
+
 Literature shows by region-of-interest-based volumetry that adults with ASD have reduced corpus-callosum, whereas surface-based morphometry studies show increased cortical thickness in the parietal lobes. Therefore, the same strategy was followed for the other two data slices. However, as shown in the following table, even though training curves looked better than before data augmentation, no good accuracy scores were obtained.
 
-| Imgae | Accuracy | Loss |
+| IMAGE | Accuracy | Loss |
 | ----- | ----- | ----- |
 | A | 0.5384 | 0.7244 |
 | B | 0.5433 | 0.6917 | 
 | C | 0.4951 | 0.6952 |
 
+### Batch normalization
+In order to try to increase the accuracy of the algorithms two protocols were tested: first, batch normalization layers were inserted where the dropout layers belonged; second, both batch normalization layers and dropout layers were employed in this order. As we can see in the results table, prediction accuracies were not high overall for images B and C. However, we could observe in image A that both procedures yielded a higher accuracy.
+
+| IMAGE | Dropout | Accuracy | Loss |
+| --- | --- | --- | --- |
+| A |   | 0.6490 | 2.8565 |
+|   | + | 0.6779 | 0.7423 |
+| B |   | 0.5529 | 4.2097 |
+|   | + | 0.5288 | 1.0323 |
+| C |   | 0.5385 | 2.3216 |
+|   | + | 0.4519 | 0.7914 |
+
+### Transfer learning
+In order to test whether we could achieve a higher accuracy, transfer learning technique was tested on the augmented image A dataset and the pre-trained model VGG16.
+
+<br>
+
+<img src="https://github.com/romaniegaa/Portfolio/blob/main/images/graph6.png" width="75%" height="75%">
+
+<br>
+
+As we can see in the training curves, the model did indeed learn; however, when new data was presented, the algorithm yielded a low accuracy of 51.92% and a high loss of 378.60%.
+
+<h2 align="center">Conclusion</h2>
+
+Different algorithm architectures have been developed in order to achieve the correct classification of magnetic resonance images of patients with autism spectrum disorder and neurotypical ones. Among the procedures that have been carried out, the best method has been to use magnetic resonance imaging with a vertical slice showing both the corpus-callosum and the parietal lobe. In addition, the use of BatchNormalization layers followed by Dropout layers resulted in a model with an accuracy of 68% and a loss of 74%.
+
+<br>
+
+Although there is room for improvement, decent accuracy has been achieved with easily obtainable data. This type of data does not require any special reprocessing unlike those mentioned in the state of art. Furthermore, to the best of our knowledge, there is no precedent for direct employment of 2D brain MRI for classification of neurotypical brains and patients with autism spectrum disorder.
 
 <h2 align="center">Used libraries</h2>
 
