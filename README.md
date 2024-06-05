@@ -51,7 +51,13 @@ Deshpande et al. determined that the motor cortex and the mid cingulate cortex a
     - Addition of Dense layers and number of units before output
   - Data augmentation was performed to increase the amount of data by randomly performing flipping, cropping and zooming.
   - 3 different region-of-interest were studied.
-    <img src="https://github.com/romaniegaa/Portfolio/blob/main/images/brain_areas.png">
+
+<br>
+<div align="center"> 
+  <img src="https://github.com/romaniegaa/Portfolio/blob/main/images/brain_areas.png" width="75%" height="75%">
+</div>
+<br>
+    
   - The addition of batch normalization layers between MaxPooling and 2DConv layers was studied.
   - The addition of dropout layers after the batch normalization layers was studied.
   - Transfer learning from the VGG16 model was studied.
@@ -64,7 +70,9 @@ After testing easy architectures and not obtaining an evaluation accuracy higher
 
 <br>
 
-<img src="https://github.com/romaniegaa/Portfolio/blob/main/images/graph1.png" width="75%" height="75%">
+<div align="center"> 
+  <img src="https://github.com/romaniegaa/Portfolio/blob/main/images/graph1.png" width="75%" height="75%">
+</div>
 
 <br>
 
@@ -72,7 +80,9 @@ Afterwards, a new combination of hyperparameters was prepared. The kernel size w
 
 <br>
 
-<img src="https://github.com/romaniegaa/Portfolio/blob/main/images/graph2.png" width="75%" height="75%">
+<div align="center"> 
+  <img src="https://github.com/romaniegaa/Portfolio/blob/main/images/graph2.png" width="75%" height="75%">
+</div>
 
 <br>
 
@@ -80,7 +90,9 @@ Finally, by maintaining the dropout rate constant at 0.3, a dense layer was adde
 
 <br>
 
-<img src="https://github.com/romaniegaa/Portfolio/blob/main/images/graph3.png" width="75%" height="75%">
+<div align="center"> 
+  <img src="https://github.com/romaniegaa/Portfolio/blob/main/images/graph3.png" width="75%" height="75%">
+</div>
 
 <br>
 
@@ -88,7 +100,9 @@ As we could see during the training, the algorithm was not capable of learning t
 
 <br>
 
-<img src="https://github.com/romaniegaa/Portfolio/blob/main/images/graph4.png" width="75%" height="75%">
+<div align="center"> 
+  <img src="https://github.com/romaniegaa/Portfolio/blob/main/images/graph4.png" width="75%" height="75%">
+</div>
 
 <br>
 
@@ -97,7 +111,9 @@ Data augmentation was performed for the three 2D slices, leading to 10 augmented
 
 <br>
 
-<img src="https://github.com/romaniegaa/Portfolio/blob/main/images/graph5.png" width="75%" height="75%">
+<div align="center"> 
+  <img src="https://github.com/romaniegaa/Portfolio/blob/main/images/graph5.png" width="75%" height="75%">
+</div>
 
 <br>
 
@@ -126,7 +142,9 @@ In order to test whether we could achieve a higher accuracy, transfer learning t
 
 <br>
 
-<img src="https://github.com/romaniegaa/Portfolio/blob/main/images/graph6.png" width="75%" height="75%">
+<div align="center"> 
+  <img src="https://github.com/romaniegaa/Portfolio/blob/main/images/graph6.png" width="75%" height="75%">
+</div>
 
 <br>
 
