@@ -50,4 +50,5 @@ Deshpande et al. determined that the motor cortex and the mid cingulate cortex a
     - Dropout rate after MaxPooling layers
     - Addition of Dense layers and number of units before output
   - Data augmentation was performed to increase the amount of data by randomly performing flipping, cropping and zooming.
+    <img src="https://github.com/romaniegaa/Portfolio/blob/main/images/brain_areas.png">
   - 3 different region-of-interest were studied
