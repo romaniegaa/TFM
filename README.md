@@ -30,7 +30,7 @@ Deshpande et al. determined that the motor cortex and the mid cingulate cortex a
 <div align="center"> 
   <img src="https://images-provider.frontiersin.org/api/ipx/w=370&f=webp/https://www.frontiersin.org/files/Articles/251884/fnins-11-00459-HTML/image_m/fnins-11-00459-g008.jpg">
   </div>
-###### ![](/images/brains.png)
+
 <br>
 
 <h2 align="center">Methodology</h2>
@@ -51,14 +51,65 @@ Deshpande et al. determined that the motor cortex and the mid cingulate cortex a
     - Addition of Dense layers and number of units before output
   - Data augmentation was performed to increase the amount of data by randomly performing flipping, cropping and zooming.
   - 3 different region-of-interest were studied.
-    <br>
     <img src="https://github.com/romaniegaa/Portfolio/blob/main/images/brain_areas.png">
-    <br>
   - The addition of batch normalization layers between MaxPooling and 2DConv layers was studied.
   - The addition of dropout layers after the batch normalization layers was studied.
   - Transfer learning from the VGG16 model was studied.
  
 <h2 align="center">Results</h2>
 
+### Architecture optimization
 
+After testing easy architectures and not obtaining an evaluation accuracy higher than a 20% with overfitting and high validation loss, with the aim of understanding how the hyperparameters interact with the learning capability of the algorithm different combinations were tested. First, we evaluated the impact that the number of layers, number of filters and size of the kernel would have. Therefore, we trained 125 models with 1 to 5 layers, 16 to 256 number of filters and kernel sizes from 2 to 6. The validation accuracy showed values above 55% for lower values for filters (left figure). It was also observed that higher kernel sizes led to lower accuracy values. The loss did not show any straightforward conclusion across the axes (right figure).
+
+<br>
+
+<img src="https://github.com/romaniegaa/Portfolio/blob/main/images/graph1.png" width="75%" height="75%">
+
+<br>
+
+Afterwards, a new combination of hyperparameters was prepared. The kernel size was kept constant as (2 x 2). Therefore, number of layers, number of filters and dropout rate was investigated. These dropout layers were introduced after each MaxPooling layer and before the following 2D convolutional layer (or flatten layer for the last one). According to the scatterplots, higher validation accuracy of 59.71% was obtained with 3 layers, 32 filters and a dropout rate of 0.3 (left figure). At the same time the evaluation loss was 74.41% (right figure).
+
+<br>
+
+<img src="https://github.com/romaniegaa/Portfolio/blob/main/images/graph2.png" width="75%" height="75%">
+
+<br>
+
+Finally, by maintaining the dropout rate constant at 0.3, a dense layer was added before the output layer containing 24+n units, being n = 0, …, 4. As it can be observed in the 3D scatterplots, there was no obvious improvement in the accuracy of the model by inserting a dense layer before the output. However, best results were observed  then this layer had 128 units. Therefore, we employed the best conditions to date, containing three layers, with 32 filters, (2 x 2) kernel size and dropout layers with a dropout rate of 0.3, obtaining a prediction accuracy of 49.51% with a loss of 70.61%. 
+
+<br>
+
+<img src="https://github.com/romaniegaa/Portfolio/blob/main/images/graph3.png" width="75%" height="75%">
+
+<br>
+
+As we could see during the training, the algorithm was not capable of learning the classification task, as shown in the next figure:
+
+<br>
+
+<img src="https://github.com/romaniegaa/Portfolio/blob/main/images/graph4.png" width="75%" height="75%">
+
+<br>
+
+### Data agumentation
+Data augmentation was performed for the three 2D slices, leading to 10 augmented images per original image. As we can see in the next figure, the learning capability of the algorithm improved because of the data augmentation. We changed to a kernel-size of 3 due to odd sizes being preferred due to symmetrically dividing the previous layer pixels around the output layer. However, the obtained prediction accuracy was low, a 53.84%; whereas the loss was 72.44%.
+
+Literature shows by region-of-interest-based volumetry that adults with ASD have reduced corpus-callosum, whereas surface-based morphometry studies show increased cortical thickness in the parietal lobes. Therefore, the same strategy was followed for the other two data slices. However, as shown in the following table, even though training curves looked better than before data augmentation, no good accuracy scores were obtained.
+
+| Imgae | Accuracy | Loss |
+| ----- | ----- | ----- |
+| A | 0.5384 | 0.7244 |
+| B | 0.5433 | 0.6917 | 
+| C | 0.4951 | 0.6952 |
+
+
+<h2 align="center">Used libraries</h2>
+
+- ```asopse.words```: to convert ".svg" data to ".png" data.
+- ```OpenCV```: to import the data.
+- ```matplotlib```: to make 2D and 3D graphs.
+- ```NumPy```: to manipulate the numeric data.
+- ```os```: to iterate throught the paths.
+- ```TensorFlow```: to build, train and evaluate the models.
 
