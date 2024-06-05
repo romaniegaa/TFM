@@ -27,7 +27,8 @@ Deshpande et al. determined that the motor cortex and the mid cingulate cortex a
 
 <br>
 
-<div align="center"> <img scr="https://images-provider.frontiersin.org/api/ipx/w=370&f=webp/https://www.frontiersin.org/files/Articles/251884/fnins-11-00459-HTML/image_m/fnins-11-00459-g008.jpg")>
+<div align="center"> 
+  <img scr="https://images-provider.frontiersin.org/api/ipx/w=370&f=webp/https://www.frontiersin.org/files/Articles/251884/fnins-11-00459-HTML/image_m/fnins-11-00459-g008.jpg")>
 </div>
 
 <br>
