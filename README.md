@@ -10,5 +10,5 @@ For this study, the dataset released by Yang et al. was used (click [here](https
 
 The data is presented as in the following figure, where different 2D-slices of the same MRI 3D scan are shown:
 
-[](https://github.com/romaniegaa/Portfolio/blob/main/images/brains.png)
+![](https://github.com/romaniegaa/Portfolio/blob/main/images/brains.png)
 <br>
